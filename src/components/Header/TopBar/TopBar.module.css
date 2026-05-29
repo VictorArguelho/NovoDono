@@ -1,0 +1,117 @@
+.topBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 50%;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  border-bottom: 2px solid #f2f5f7;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+  height: 100%;
+}
+
+.wrapperLeft {
+  justify-content: start;
+}
+
+.wrapperCenter {
+  justify-content: center;
+}
+
+.wrapperRight {
+  justify-content: end;
+}
+
+.logo {
+  height: 90px;
+  aspect-ratio: 200 / 142;
+}
+
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 50px;
+  width: 100%;
+
+  background-color: #f2f5f7;
+  border-radius: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+.searchButton {
+  height: 80%;
+  margin-right: 10px;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.searchIcon {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.searchInput {
+  height: 100%;
+  width: 100%;
+
+  margin-left: 15px;
+
+  border: 0;
+
+  background: transparent;
+
+  font-size: 1.5rem;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.authButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 45px;
+}
+
+.authButton {
+  height: 100%;
+
+  padding-left: 15px;
+  padding-right: 15px;
+
+  border: 0;
+  border-radius: 500px;
+
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+}
+
+.signupButton {
+  background: transparent;
+  color: #f2f5f7;
+}
+
+.loginButton {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+}
