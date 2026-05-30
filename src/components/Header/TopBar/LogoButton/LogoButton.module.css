@@ -1,8 +1,4 @@
 .logo {
-  height: 90px;
+  height: 60px;
   aspect-ratio: 100 / 71;
-}
-
-.logoButton {
-    background-color: transparent;
 }

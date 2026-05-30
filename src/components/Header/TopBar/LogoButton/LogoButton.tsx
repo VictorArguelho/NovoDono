@@ -10,7 +10,7 @@ export default function LogoButton() {
       className={`${styles.logoButton} ${buttonStyles.divButton} ${buttonStyles.button} ${effectsStyles.shadow}`}
       type="button"
     >
-      <img className={styles.logo} src={logo} alt="Logo Novo Dono" />
+        <img className={styles.logo} src={logo} alt="Logo Novo Dono" />
     </button>
   );
 }
