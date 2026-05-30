@@ -1,0 +1,39 @@
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 50px;
+  width: 100%;
+
+  background-color: var(--color-secondary);
+  border-radius: 500px;
+}
+
+.searchButton {
+  height: 80%;
+  margin-right: 10px;
+}
+
+.searchIcon {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.searchInput {
+  height: 100%;
+  width: 100%;
+
+  margin-left: 15px;
+
+  border: 0;
+
+  background: transparent;
+
+  font-size: 1.5rem;
+}
+
+.searchInput:focus {
+  outline: none;
+}

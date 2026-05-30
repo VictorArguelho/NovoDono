@@ -1,4 +1,7 @@
 .header {
   height: 230px;
-  background-color: #afddec;
+  background-color: var(--color-primary);
+
+  display: flex;
+  flex-direction: column;
 }

@@ -1,23 +1,33 @@
 import styles from './NavBar.module.css';
+import buttonStyles from '@styles/buttons.module.css';
+import effectStyles from '@styles/effects.module.css';
+import typographyStyles from '@styles/typography.module.css';
 
 export default function Navbar() {
   return (
     <nav className={styles.navBar}>
-      <button className={styles.navButton} type="button">
-        ANUNCIAR
-      </button>
+      <NavButton text="ANUNCIAR" />
 
-      <button className={styles.navButton} type="button">
-        CHAT
-      </button>
+      <NavButton text="CHAT" />
 
-      <button className={styles.navButton} type="button">
-        SOBRE
-      </button>
+      <NavButton text="SOBRE" />
 
-      <button className={styles.navButton} type="button">
-        CONTRIBUIR
-      </button>
+      <NavButton text="CONTRIBUIR" />
     </nav>
+  );
+}
+
+type NavButtonProps = {
+  text: string;
+};
+
+function NavButton({ text }: NavButtonProps) {
+  return (
+    <button
+      className={`${styles.navButton} ${buttonStyles.button} ${effectStyles.shadow} ${typographyStyles.text}`}
+      type="button"
+    >
+      {text}
+    </button>
   );
 }

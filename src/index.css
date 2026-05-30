@@ -85,19 +85,19 @@
 }
 
 body {
+  color: var(--color-text);
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  font-weight: 800;
+
   margin: 0;
 }
 
-button {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-}
-
-input {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
 }
 
 #root {
