@@ -3,10 +3,6 @@
   background: transparent;
 }
 
-.normalButton {
-  background-color: var(--color-secondary);
-}
-
 .button {
   transition: transform 0.2s ease;
   cursor: pointer;

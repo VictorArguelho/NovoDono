@@ -1,22 +1,23 @@
 .authButtons {
-  height: 40%;
-
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
   gap: 15px;
 }
 
 .authButton {
-  height: 100%;
-
+  white-space: nowrap;
   padding-left: 15px;
   padding-right: 15px;
 
-  border: 0;
+  height: 50px;
+  font-size: 20px;
+
   border-radius: 500px;
+}
+
+.loginButton {
+  border: 0;
+  background: var(--color-secondary);
+  color: var(--color-text);
 }
 
 .signupButton {

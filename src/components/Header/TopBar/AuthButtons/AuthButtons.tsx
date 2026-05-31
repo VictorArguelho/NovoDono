@@ -1,7 +1,6 @@
 import styles from './AuthButtons.module.css';
 import buttonStyles from '@styles/buttons.module.css';
 import effectStyles from '@styles/effects.module.css';
-import typographyStyles from '@styles/typography.module.css';
 
 export default function AuthButtons() {
   return (
@@ -20,7 +19,7 @@ type AuthButtonProps = {
 function AuthButton({ text, variantClass }: AuthButtonProps) {
   return (
     <button
-      className={`${variantClass} ${styles.authButton} ${buttonStyles.button} ${effectStyles.shadow} ${typographyStyles.text}`}
+      className={`${variantClass} ${styles.authButton} ${buttonStyles.button} ${effectStyles.shadow}`}
       type="button"
     >
       {text}

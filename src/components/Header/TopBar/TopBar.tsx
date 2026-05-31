@@ -1,6 +1,5 @@
 import styles from './TopBar.module.css';
 
-import TripleSection from '@components/layout/TripleSection/TripleSection';
 import LogoButton from './LogoButton/LogoButton';
 import SearchBar from './SearchBar/SearchBar';
 import AuthButtons from './AuthButtons/AuthButtons';
@@ -8,11 +7,15 @@ import AuthButtons from './AuthButtons/AuthButtons';
 export default function TopBar() {
   return (
     <div className={styles.topBar}>
-      <TripleSection
-        left={<LogoButton />}
-        center={<SearchBar />}
-        right={<AuthButtons />}
-      />
+      <div className={`${styles.section} ${styles.logoSection} `}>
+        <LogoButton />
+      </div>
+      <div className={`${styles.section} ${styles.searchBarSection}`}>
+        <SearchBar />
+      </div>
+      <div className={`${styles.section} ${styles.authButtonsSection}`}>
+        <AuthButtons />
+      </div>
     </div>
   );
 }

@@ -1,11 +1,10 @@
 .searchBar {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
 
-  height: 40%;
+  height: 50px;
   width: 100%;
+  max-width: 700px;
 
   background-color: var(--color-secondary);
   border-radius: 500px;
@@ -28,10 +27,9 @@
   margin-left: 15px;
 
   border: 0;
-
   background: transparent;
 
-  font-size: 1.5rem;
+  font-size: 20px;
 }
 
 .searchInput:focus {

@@ -1,33 +1,39 @@
 import styles from './NavBar.module.css';
 import buttonStyles from '@styles/buttons.module.css';
-import effectStyles from '@styles/effects.module.css';
-import typographyStyles from '@styles/typography.module.css';
+import effectsStyles from '@styles/effects.module.css';
+
+import doar from '@images/doar.png';
+import chat from '@images/chats.png';
+import sobre from '@images/sobre.png';
+import contribuir from '@images/contribuir.png';
 
 export default function Navbar() {
   return (
     <nav className={styles.navBar}>
-      <NavButton text="ANUNCIAR" />
+      <NavButton text="ANUNCIAR" img={doar} />
 
-      <NavButton text="CHAT" />
+      <NavButton text="CHAT" img={chat} />
 
-      <NavButton text="SOBRE" />
+      <NavButton text="SOBRE" img={sobre} />
 
-      <NavButton text="CONTRIBUIR" />
+      <NavButton text="CONTRIBUIR" img={contribuir} />
     </nav>
   );
 }
 
 type NavButtonProps = {
   text: string;
+  img: string;
 };
 
-function NavButton({ text }: NavButtonProps) {
+function NavButton({ text, img }: NavButtonProps) {
   return (
     <button
-      className={`${styles.navButton} ${buttonStyles.button} ${effectStyles.shadow} ${typographyStyles.text}`}
+      className={`${styles.navButton} ${buttonStyles.button} ${buttonStyles.divButton} ${effectsStyles.shadow}`}
       type="button"
     >
-      {text}
+      <img className={styles.imgButton} src={img} alt="" />
+      <span className={styles.textButton}>{text}</span>
     </button>
   );
 }
