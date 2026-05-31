@@ -2,10 +2,10 @@ import styles from './NavBar.module.css';
 import buttonStyles from '@styles/buttons.module.css';
 import effectsStyles from '@styles/effects.module.css';
 
-import doar from '@images/doar.png';
-import chat from '@images/chats.png';
-import sobre from '@images/sobre.png';
-import contribuir from '@images/contribuir.png';
+import doar from '@images/header/doar.png';
+import chat from '@images/header/chats.png';
+import sobre from '@images/header/sobre.png';
+import contribuir from '@images/header/contribuir.png';
 
 export default function Navbar() {
   return (

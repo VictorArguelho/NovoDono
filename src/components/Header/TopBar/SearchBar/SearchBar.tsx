@@ -2,7 +2,7 @@ import styles from './SearchBar.module.css';
 import buttonStyles from '@styles/buttons.module.css';
 import effectsStyles from '@styles/effects.module.css'
 
-import searchIcon from '@images/search-icon.png';
+import searchIcon from '@images/header/search-icon.png';
 
 export default function SearchBar() {
   return (

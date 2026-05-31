@@ -1,6 +1,16 @@
 .header {
   background-color: var(--color-primary);
 
+  background-image: url('@images/header/background.png');
+
+  /* ajusta a altura da imagem para a altura do header */
+  background-size: auto 100%;
+
+  /* repete horizontalmente */
+  background-repeat: repeat-x;
+
+  background-position: left top;
+
   display: flex;
   flex-direction: column;
 }
