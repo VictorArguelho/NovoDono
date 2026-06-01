@@ -12,7 +12,7 @@ export default function Navbar() {
     <nav className={styles.navBar}>
       <NavButton text="ANUNCIAR" img={doar} />
 
-      <NavButton text="CHAT" img={chat} />
+      <NavButton text="CONVERSAS" img={chat} />
 
       <NavButton text="SOBRE" img={sobre} />
 
