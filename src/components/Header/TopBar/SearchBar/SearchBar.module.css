@@ -10,17 +10,17 @@
   border-radius: 500px;
 }
 
-.searchButton {
+.button {
   height: 80%;
   margin-right: 10px;
 }
 
-.searchIcon {
+.icon {
   height: 100%;
   aspect-ratio: 1 / 1;
 }
 
-.searchInput {
+.input {
   height: 100%;
   width: 100%;
 
@@ -32,6 +32,6 @@
   font-size: 20px;
 }
 
-.searchInput:focus {
+.input:focus {
   outline: none;
 }

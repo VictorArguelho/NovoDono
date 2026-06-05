@@ -8,10 +8,10 @@ type FilterGroupProps = {
 export default function FilterGroup({ title, options }: FilterGroupProps) {
   return (
     <details className={styles.filterGroup}>
-      <summary className={styles.filterTitle}>{title}</summary>
+      <summary className={styles.title}>{title}</summary>
 
       {options.map((option) => (
-        <label className={styles.filterOption}>
+        <label className={styles.option}>
           <input type="checkbox" className={styles.optionCheck} />
           <span className={styles.optionName}>{option}</span>
         </label>

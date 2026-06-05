@@ -8,17 +8,17 @@ export default function SearchBar() {
   return (
     <form className={`${styles.searchBar} ${effectsStyles.shadow}`}>
       <input
-        className={styles.searchInput}
+        className={styles.input}
         type="text"
         placeholder="Busque por roupas"
       />
 
       <button
-        className={`${styles.searchButton} ${buttonStyles.divButton} ${buttonStyles.button}`}
+        className={`${styles.button} ${buttonStyles.divButton} ${buttonStyles.button}`}
         type="button"
       >
         <img
-          className={styles.searchIcon}
+          className={styles.icon}
           src={searchIcon}
           alt="Ícone de pesquisa"
         />

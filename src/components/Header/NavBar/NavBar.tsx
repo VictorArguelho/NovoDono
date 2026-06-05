@@ -29,11 +29,11 @@ type NavButtonProps = {
 function NavButton({ text, img }: NavButtonProps) {
   return (
     <button
-      className={`${styles.navButton} ${buttonStyles.button} ${buttonStyles.divButton} ${effectsStyles.shadow}`}
+      className={`${styles.button} ${buttonStyles.button} ${buttonStyles.divButton} ${effectsStyles.shadow}`}
       type="button"
     >
-      <img className={styles.imgButton} src={img} alt="" />
-      <span className={styles.textButton}>{text}</span>
+      <img className={styles.image} src={img} alt="" />
+      <span className={styles.text}>{text}</span>
     </button>
   );
 }

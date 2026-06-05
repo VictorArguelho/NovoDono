@@ -5,8 +5,8 @@ import effectStyles from '@styles/effects.module.css';
 export default function AuthButtons() {
   return (
     <div className={styles.authButtons}>
-      <AuthButton text="CADASTRAR-SE" variantClass={styles.signupButton} />
-      <AuthButton text="ENTRAR" variantClass={styles.loginButton} />
+      <AuthButton text="CADASTRAR-SE" variantClass={styles.signup} />
+      <AuthButton text="ENTRAR" variantClass={styles.login} />
     </div>
   );
 }
@@ -19,7 +19,7 @@ type AuthButtonProps = {
 function AuthButton({ text, variantClass }: AuthButtonProps) {
   return (
     <button
-      className={`${variantClass} ${styles.authButton} ${buttonStyles.button} ${effectStyles.shadow}`}
+      className={`${variantClass} ${styles.button} ${buttonStyles.button} ${effectStyles.shadow}`}
       type="button"
     >
       {text}

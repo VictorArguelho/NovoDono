@@ -15,13 +15,13 @@ export default function AdCard({ adData }: { adData: AdDataType }) {
       role="button"
     >
       <div className={styles.imageContainer}>
-        <img className={styles.adImage} src={adData.image} alt="" />
-        <span className={styles.adState}>{adData.state}</span>
+        <img className={styles.image} src={adData.image} alt="" />
+        <span className={styles.state}>{adData.state}</span>
       </div>
 
-      <div className={styles.adInfo}>
-        <h1 className={styles.adTitle}>{adData.name}</h1>
-        <h2 className={styles.adLocation}>{adData.location}</h2>
+      <div className={styles.info}>
+        <h1 className={styles.title}>{adData.name}</h1>
+        <h2 className={styles.location}>{adData.location}</h2>
       </div>
     </article>
   );
