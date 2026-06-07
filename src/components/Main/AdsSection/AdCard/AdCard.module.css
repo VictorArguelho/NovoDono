@@ -1,5 +1,5 @@
 .adCard {
-  width: 80%;
+  width: 90%;
   max-width: 250px;
 
   aspect-ratio: 250 / 320;
@@ -63,4 +63,22 @@
 .location {
   font-size: 15px;
   margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .adCard {
+    max-width: 130px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .location {
+    font-size: 10px;
+  }
+
+  .state {
+    font-size: 12px;
+  }
 }

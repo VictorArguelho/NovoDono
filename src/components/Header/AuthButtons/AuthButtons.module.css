@@ -25,3 +25,14 @@
   border: solid var(--color-white) 2px;
   background: transparent;
 }
+
+@media (max-width: 768px) {
+  .authButtons {
+    flex-direction: column;
+  }
+
+  .button {
+    font-size: 18px;
+    height: 30px;
+  }
+}

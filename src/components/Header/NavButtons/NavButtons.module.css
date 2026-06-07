@@ -18,3 +18,16 @@
 .text {
   font-size: 25px;
 }
+
+@media (max-width: 768px) {
+  .navButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .button {
+    height: 35px;
+  }
+  .text {
+    font-size: 20px;
+  }
+}

@@ -28,3 +28,18 @@
 .contentOpen {
   width: 230px;
 }
+
+@media (max-width: 768px) {
+  .filters {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .colapseButton {
+    font-size: 15px;
+  }
+
+    .contentOpen {
+    width: 150px;
+  }
+}

@@ -20,7 +20,7 @@ export default function AdsSection() {
       <AdCard
         adData={{
           image: roupa1,
-          name: "Lorem",
+          name: "Camiseta manga longa",
           location: "Maringá, PR",
           state: "Ótimo Estado",
         }}
