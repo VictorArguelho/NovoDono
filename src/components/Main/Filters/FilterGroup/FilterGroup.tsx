@@ -16,7 +16,8 @@ export default function FilterGroup({ title, options }: FilterGroupProps) {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {title}
+        <span className={styles.titleText}>{title}</span>
+        <span className={styles.expandIcon}>{isOpen ? '⋀' : 'V'}</span>
       </button>
 
       <div className={`${styles.content} ${isOpen ? styles.contentOpen : ''}`}>
