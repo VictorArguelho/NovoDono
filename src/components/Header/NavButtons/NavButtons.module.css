@@ -1,9 +1,10 @@
-.navBar {
-  height: 50px;
+.navButtons {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .button {
+  height: 50px;
   flex: 1;
   display: flex;
   align-items: center;

@@ -1,21 +1,34 @@
+import { useState } from 'react';
 import styles from './FilterGroup.module.css';
 
 type FilterGroupProps = {
   title: string;
-  options: Array<string>;
+  options: string[];
 };
 
 export default function FilterGroup({ title, options }: FilterGroupProps) {
-  return (
-    <details className={styles.filterGroup}>
-      <summary className={styles.title}>{title}</summary>
+  const [isOpen, setIsOpen] = useState(false);
 
-      {options.map((option) => (
-        <label className={styles.option}>
-          <input type="checkbox" className={styles.optionCheck} />
-          <span className={styles.optionName}>{option}</span>
-        </label>
-      ))}
-    </details>
+  return (
+    <fieldset className={styles.filterGroup}>
+      <button
+        className={styles.title}
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {title}
+      </button>
+
+      <div className={`${styles.content} ${isOpen ? styles.contentOpen : ''}`}>
+        <div>
+          {options.map((option) => (
+            <label className={`${styles.option}`}>
+              <input className={styles.optionCheck} type="checkbox" />
+              <span className={styles.optionName}>{option}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+    </fieldset>
   );
 }

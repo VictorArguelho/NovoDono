@@ -1,4 +1,4 @@
-import styles from './NavBar.module.css';
+import styles from './NavButtons.module.css';
 import buttonStyles from '@styles/buttons.module.css';
 import effectsStyles from '@styles/effects.module.css';
 
@@ -7,9 +7,13 @@ import chat from '@images/header/chats.png';
 import sobre from '@images/header/sobre.png';
 import contribuir from '@images/header/contribuir.png';
 
-export default function Navbar() {
+type NavButtonsProps = {
+  className: string;
+}
+
+export default function NavButtons({className} : NavButtonsProps) {
   return (
-    <nav className={styles.navBar}>
+    <nav className={`${styles.navButtons} ${className ?? ''}`}>
       <NavButton text="ANUNCIAR" img={doar} />
 
       <NavButton text="CONVERSAS" img={chat} />

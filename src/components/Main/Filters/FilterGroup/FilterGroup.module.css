@@ -1,13 +1,13 @@
 .filterGroup {
-  width: 70%;
+  max-width: 210px;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
-  align-items: start;
 
   padding: 5px;
 
-  gap: 10px;
+  gap: 5px;
 
   border: 3px solid var(--color-text);
   border-radius: 10px;
@@ -15,10 +15,36 @@
   background-color: var(--color-white);
 }
 
+.title {
+  width: 100%;
+
+  border: none;
+  background: none;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: 0fr;
+
+  transition: grid-template-rows 0.4s ease;
+}
+
+.contentOpen {
+  grid-template-rows: 1fr;
+}
+
+.content > div {
+  overflow: hidden;
+}
+
 .option {
   display: flex;
   align-items: center;
-  gap: 5px;
+
   cursor: pointer;
 }
 
@@ -30,15 +56,13 @@
 
   border: 2px solid var(--color-text);
   border-radius: 2px;
+  
+  cursor: pointer;
 
-  background-color: var(--color-white);
+  background-color: transparent;
+  transition: background-color 300ms ease;
 }
 
 .optionCheck:checked {
   background-color: var(--color-text);
-}
-
-.title {
-  width: 100%;
-  cursor: pointer;
 }

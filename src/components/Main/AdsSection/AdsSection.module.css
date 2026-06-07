@@ -1,14 +1,8 @@
 .adsSection {
   flex: 1;
-
-  display: grid;
-
-  grid-template-columns: repeat(
-    auto-fill,
-    250px
-  );
-
-  gap: 40px;
-
+  
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 40px;
 }

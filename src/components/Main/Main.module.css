@@ -1,7 +1,11 @@
 .main {
   flex-grow: 1;
   overflow-y: auto;
-  display: flex;
-  flex-direction: row;
+
   padding-top: 20px;
+}
+
+.main > div {
+  display: flex;
+  align-items: flex-start;
 }
