@@ -1,6 +1,6 @@
 .header {
   background-color: var(--color-primary);
-  background-image: url('@images/header/background.png');
+  background-image: url('@assets/images/header/background.png');
   background-size: auto 100%;
   background-repeat: repeat-x;
   background-position: left top;
