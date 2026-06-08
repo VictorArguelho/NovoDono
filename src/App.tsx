@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import './App.css';
-import Home from './pages/Home/Home';
-import NotFound from './pages/NotFound/NotFound';
+import Home from '@pages/Home/Home';
+import NotFound from '@pages/NotFound/NotFound';
 
 export default function App() {
   return (

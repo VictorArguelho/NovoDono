@@ -2,10 +2,10 @@ import styles from './NavButtons.module.css';
 import buttonStyles from '@styles/buttons.module.css';
 import effectsStyles from '@styles/effects.module.css';
 
-import doar from '@images/header/doar.png';
-import chat from '@images/header/chats.png';
-import sobre from '@images/header/sobre.png';
-import contribuir from '@images/header/contribuir.png';
+import doar from '@assets/images/header/doar.png';
+import chat from '@assets/images/header/chats.png';
+import sobre from '@assets/images/header/sobre.png';
+import contribuir from '@assets/images/header/contribuir.png';
 
 type NavButtonsProps = {
   className: string;
