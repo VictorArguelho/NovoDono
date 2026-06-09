@@ -1,0 +1,139 @@
+.adGallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainContainer {
+  aspect-ratio: 250 / 320;
+
+  border: 3px solid var(--color-text);
+  border-radius: 10px;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  cursor: zoom-in;
+}
+
+.next,
+.back {
+  width: 15%;
+  aspect-ratio: 1/1;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.next:hover,
+.back:hover {
+  transform: translateY(-50%) scale(1.15);
+}
+
+.next:active,
+.back:active {
+  transform: translateY(-50%) scale(1);
+}
+
+.navigator {
+  width: 100%;
+}
+
+.next {
+  right: 0;
+}
+
+.back {
+  left: 0;
+}
+
+.prevContainer {
+  width: fit-content;
+
+  padding: 2%;
+  margin-left: -1%;
+
+  display: flex;
+  gap: 2%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.prev {
+  width: 22%;
+
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  border: 2px solid var(--color-text);
+  border-radius: 5px;
+}
+
+.fullMainContainer {
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: fadeIn 0.2s ease;
+}
+
+.fullMainContainerClosing {
+  animation: fadeOut 0.25s ease forwards;
+}
+
+.fullMain {
+  max-width: 90vw;
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  border-radius: 10px;
+
+  cursor: zoom-out;
+
+  animation: zoomIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

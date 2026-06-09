@@ -1,6 +1,6 @@
 import { createAd } from "@services/AdsService";
 
-import roupa1 from "@assets/images/AdsPlaceholders/roupa_1.jpg";
+//import roupa1 from "@assets/images/AdsPlaceholders/roupa_1.jpg";
 import roupa2 from "@assets/images/AdsPlaceholders/roupa_2.jpg";
 import roupa3 from "@assets/images/AdsPlaceholders/roupa_3.jpg";
 import roupa4 from "@assets/images/AdsPlaceholders/roupa_4.jpg";
@@ -17,9 +17,9 @@ export function CreateAds(): void {
 
   createAd({
     id: "1",
-    category: "Blusa",
-    description: "Blusa vermelha em bom estado.",
-    imagesUrl: [roupa1],
+    category: "Camiseta manga longa",
+    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu",
+    imagesUrl: [roupa5, roupa2, roupa3, roupa4, roupa9],
     conservation: "Bom",
     size: "M",
     location: "Maringá, PR",
