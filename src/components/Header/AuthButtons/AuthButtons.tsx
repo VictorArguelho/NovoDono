@@ -11,10 +11,7 @@ export default function AuthButtons() {
   );
 }
 
-type AuthButtonProps = {
-  text: string;
-  variantClass: string;
-};
+import type { AuthButtonProps } from '@models/props';
 
 function AuthButton({ text, variantClass }: AuthButtonProps) {
   return (

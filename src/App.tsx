@@ -1,13 +1,15 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import "./App.css";
 import Home from "@pages/Home/Home";
 import Ad from "@pages/Ad/Ad";
 import NotFound from "@pages/NotFound/NotFound";
 import { CreateAds } from "./utils/PlaceholdersCreator";
 
 export default function App() {
-  CreateAds();
+  useEffect(() => {
+    CreateAds();
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

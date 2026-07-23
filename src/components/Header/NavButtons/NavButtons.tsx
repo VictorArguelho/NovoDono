@@ -7,9 +7,7 @@ import chat from '@assets/images/header/chats.png';
 import sobre from '@assets/images/header/sobre.png';
 import contribuir from '@assets/images/header/contribuir.png';
 
-type NavButtonsProps = {
-  className: string;
-}
+import type { NavButtonsProps, NavButtonProps } from '@models/props';
 
 export default function NavButtons({className} : NavButtonsProps) {
   return (
@@ -24,11 +22,6 @@ export default function NavButtons({className} : NavButtonsProps) {
     </nav>
   );
 }
-
-type NavButtonProps = {
-  text: string;
-  img: string;
-};
 
 function NavButton({ text, img }: NavButtonProps) {
   return (

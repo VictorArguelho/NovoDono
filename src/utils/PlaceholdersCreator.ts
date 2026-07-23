@@ -1,6 +1,5 @@
 import { createAd } from "@services/AdsService";
 
-//import roupa1 from "@assets/images/AdsPlaceholders/roupa_1.jpg";
 import roupa2 from "@assets/images/AdsPlaceholders/roupa_2.jpg";
 import roupa3 from "@assets/images/AdsPlaceholders/roupa_3.jpg";
 import roupa4 from "@assets/images/AdsPlaceholders/roupa_4.jpg";
@@ -13,7 +12,10 @@ import roupa11 from "@assets/images/AdsPlaceholders/roupa_11.jpg";
 import roupa12 from "@assets/images/AdsPlaceholders/roupa_12.jpg";
 
 export function CreateAds(): void {
-  localStorage.setItem("ads", "");
+  const existing = localStorage.getItem("ads");
+  if (existing && existing !== "") {
+    return;
+  }
 
   createAd({
     id: "1",

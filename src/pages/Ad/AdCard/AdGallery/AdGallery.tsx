@@ -8,9 +8,7 @@ import back from '@assets/images/back.png';
 
 const previewCount = 5;
 
-type AdGalleryProps = {
-  images: string[];
-};
+import type { AdGalleryProps } from '@models/props';
 
 export default function AdGallery({ images }: AdGalleryProps) {
   const [curMainImg, setMainImg] = useState(0);

@@ -1,13 +1,9 @@
-import type { Ad } from "@models/Ad";
+import type { AdCardProps } from "@models/props";
 import styles from "./AdCard.module.css";
 import buttonStyles from "@styles/buttons.module.css";
 import { useNavigate } from "react-router-dom";
 
-type AdDataType = {
-  ad: Ad
-};
-
-export default function AdCard({ ad }: AdDataType) {
+export default function AdCard({ ad }: AdCardProps) {
   const navigate = useNavigate();
 
   return (

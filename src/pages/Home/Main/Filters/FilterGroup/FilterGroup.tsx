@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import styles from './FilterGroup.module.css';
-
-type FilterGroupProps = {
-  title: string;
-  options: string[];
-};
+import type { FilterGroupProps } from '@models/props';
 
 export default function FilterGroup({ title, options }: FilterGroupProps) {
   const [isOpen, setIsOpen] = useState(false);

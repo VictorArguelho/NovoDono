@@ -1,12 +1,8 @@
-import type { Ad } from '@models/Ad';
+import type { AdCardProps } from '@models/props';
 import styles from './AdCard.module.css';
 
 import AdGallery from './AdGallery/AdGallery';
 import AdInfo from './AdInfo/AdInfo';
-
-type AdCardProps = {
-  ad: Ad;
-};
 
 export default function AdCard({ ad }: AdCardProps) {
   return (

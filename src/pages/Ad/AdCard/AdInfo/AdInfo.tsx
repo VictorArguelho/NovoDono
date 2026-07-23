@@ -1,9 +1,5 @@
-import type { Ad } from '@models/Ad';
+import type { AdInfoProps } from '@models/props';
 import styles from './AdInfo.module.css';
-
-type AdInfoProps = {
-  ad: Ad;
-};
 
 export default function AdInfo({ ad }: AdInfoProps) {
   return (

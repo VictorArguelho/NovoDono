@@ -13,8 +13,8 @@
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
       "@pages/*": ["src/pages/*"],
-      "@models/*": ["/src/types/*"],
-      "@services/*": ["/src/services/*"]
+      "@models/*": ["src/types/*"],
+      "@services/*": ["src/services/*"]
     },
 
     "ignoreDeprecations": "6.0"
