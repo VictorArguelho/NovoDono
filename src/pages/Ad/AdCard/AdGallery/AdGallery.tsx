@@ -3,17 +3,78 @@ import { useState } from 'react';
 import styles from './AdGallery.module.css';
 import buttonStyles from '@styles/buttons.module.css';
 
-import next from '@assets/images/next.png';
-import back from '@assets/images/back.png';
+import type { AdGalleryProps } from '@models/props';
 
 const previewCount = 5;
 
-import type { AdGalleryProps } from '@models/props';
+function ChevronLeft() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  );
+}
+
+function ChevronRight() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  );
+}
+
+function XIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  );
+}
 
 export default function AdGallery({ images }: AdGalleryProps) {
   const [curMainImg, setMainImg] = useState(0);
   const [previewStart, setPreviewStart] = useState(0);
   const [mainFullscreen, setMainFullscreen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  function handleCloseFullscreen() {
+    setIsClosing(true);
+    setTimeout(() => {
+      setMainFullscreen(false);
+      setIsClosing(false);
+    }, 200);
+  }
 
   return (
     <div className={styles.adGallery}>
@@ -31,16 +92,18 @@ export default function AdGallery({ images }: AdGalleryProps) {
         </div>
 
         <button
-          className={`${styles.back} ${buttonStyles.divButton}`}
+          className={styles.arrowButton}
+          style={{ left: '10px' }}
           onClick={() => changeCurMainImg(-1)}
         >
-          <img className={styles.navigator} src={back} alt="Próxima imagem" />
+          <ChevronLeft />
         </button>
         <button
-          className={`${styles.next} ${buttonStyles.divButton}`}
+          className={styles.arrowButton}
+          style={{ right: '10px' }}
           onClick={() => changeCurMainImg(1)}
         >
-          <img className={styles.navigator} src={next} alt="Imagem anterior" />
+          <ChevronRight />
         </button>
       </div>
 
@@ -58,19 +121,19 @@ export default function AdGallery({ images }: AdGalleryProps) {
       </div>
 
       {mainFullscreen ? (
-        <div className={styles.fullMainContainer}>
-          <button
-            className={styles.closeFullMain}
-            onClick={() => setMainFullscreen(false)}
-          >
-            X
+        <div
+          className={`${styles.fullMainContainer} ${isClosing ? styles.fullMainContainerClosing : ''}`}
+        >
+          <button className={styles.closeFullMain} onClick={handleCloseFullscreen}>
+            <XIcon />
           </button>
 
           <button
-            className={`${styles.back} ${buttonStyles.divButton}`}
+            className={`${styles.arrowButton} ${styles.fullscreenArrow}`}
+            style={{ left: '24px' }}
             onClick={() => changeCurMainImg(-1)}
           >
-            <img className={styles.navigator} src={back} alt="Próxima imagem" />
+            <ChevronLeft />
           </button>
 
           <img
@@ -78,18 +141,15 @@ export default function AdGallery({ images }: AdGalleryProps) {
             src={images[curMainImg]}
             alt="Imagem principal"
             role="button"
-            onClick={() => setMainFullscreen(true)}
+            onClick={handleCloseFullscreen}
           />
 
           <button
-            className={`${styles.next} ${buttonStyles.divButton}`}
+            className={`${styles.arrowButton} ${styles.fullscreenArrow}`}
+            style={{ right: '24px' }}
             onClick={() => changeCurMainImg(1)}
           >
-            <img
-              className={styles.navigator}
-              src={next}
-              alt="Imagem anterior"
-            />
+            <ChevronRight />
           </button>
         </div>
       ) : null}

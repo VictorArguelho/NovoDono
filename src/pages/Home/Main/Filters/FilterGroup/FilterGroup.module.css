@@ -1,18 +1,22 @@
 .filterGroup {
-  max-width: 210px;
+  min-width: 200px;
+  max-width: 230px;
   width: 100%;
 
   display: flex;
   flex-direction: column;
 
-  padding: 5px;
+  padding: 12px 14px;
 
-  gap: 5px;
+  gap: 8px;
 
-  border: 3px solid var(--color-text);
-  border-radius: 10px;
+  border: 2px solid var(--color-text);
+  border-radius: var(--radius-md);
 
   background-color: var(--color-white);
+  box-shadow: var(--shadow-lg);
+
+  box-sizing: border-box;
 }
 
 .title {
@@ -23,27 +27,31 @@
   background: none;
 
   display: flex;
+  align-items: center;
 
   cursor: pointer;
+  padding: 4px 0;
 }
 
 .titleText {
-  width: 90%;
-  justify-self: start;
   text-align: start;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .expandIcon {
-  position: absolute;
-  top: 0;
-  right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  font-size: 14px;
+  transition: transform var(--transition-fast);
 }
 
 .content {
   display: grid;
   grid-template-rows: 0fr;
-
-  transition: grid-template-rows 0.4s ease;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contentOpen {
@@ -57,35 +65,67 @@
 .option {
   display: flex;
   align-items: center;
+  gap: 10px;
 
   cursor: pointer;
+  padding: 4px 4px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.option:hover {
+  background-color: rgba(175, 221, 236, 0.3);
+}
+
+.optionName {
+  font-weight: 400;
+  font-size: 15px;
 }
 
 .optionCheck {
   appearance: none;
+  flex-shrink: 0;
 
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
 
   border: 2px solid var(--color-text);
-  border-radius: 2px;
+  border-radius: 4px;
 
   cursor: pointer;
 
   background-color: transparent;
-  transition: background-color 300ms ease;
+  transition: all var(--transition-fast);
+}
+
+.optionCheck:hover {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 167, 221, 0.15);
 }
 
 .optionCheck:checked {
-  background-color: var(--color-text);
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 @media (max-width: 768px) {
   .filterGroup {
-    max-width: 120px;
+    min-width: 135px;
+    max-width: 145px;
+    padding: 8px 10px;
+    gap: 6px;
   }
 
-  .option {
+  .titleText {
     font-size: 13px;
+  }
+
+  .optionName {
+    font-size: 12px;
+  }
+
+  .optionCheck {
+    width: 14px;
+    height: 14px;
   }
 }

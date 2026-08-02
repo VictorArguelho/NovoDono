@@ -1,4 +1,13 @@
 .logoImg {
-  height: 80px;
+  height: 64px;
   aspect-ratio: 250 / 203;
+  transition: transform var(--transition-fast);
+}
+
+.logoImg:hover {
+  transform: scale(1.05);
+}
+
+.logoImg:active {
+  transform: scale(0.98);
 }

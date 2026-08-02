@@ -2,34 +2,28 @@ import styles from './NavButtons.module.css';
 import buttonStyles from '@styles/buttons.module.css';
 import effectsStyles from '@styles/effects.module.css';
 
-import doar from '@assets/images/header/doar.png';
-import chat from '@assets/images/header/chats.png';
-import sobre from '@assets/images/header/sobre.png';
-import contribuir from '@assets/images/header/contribuir.png';
-
 import type { NavButtonsProps, NavButtonProps } from '@models/props';
 
 export default function NavButtons({className} : NavButtonsProps) {
   return (
     <nav className={`${styles.navButtons} ${className ?? ''}`}>
-      <NavButton text="ANUNCIAR" img={doar} />
+      <NavButton text="ANUNCIAR" />
 
-      <NavButton text="CONVERSAS" img={chat} />
+      <NavButton text="CONVERSAS" />
 
-      <NavButton text="SOBRE" img={sobre} />
+      <NavButton text="SOBRE" />
 
-      <NavButton text="CONTRIBUIR" img={contribuir} />
+      <NavButton text="CONTRIBUIR" />
     </nav>
   );
 }
 
-function NavButton({ text, img }: NavButtonProps) {
+function NavButton({ text }: NavButtonProps) {
   return (
     <button
       className={`${styles.button} ${buttonStyles.button} ${buttonStyles.divButton} ${effectsStyles.shadow}`}
       type="button"
     >
-      <img className={styles.image} src={img} alt="" />
       <span className={styles.text}>{text}</span>
     </button>
   );

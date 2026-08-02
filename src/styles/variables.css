@@ -6,4 +6,26 @@
   --color-white: #f2f5f7;
 
   --color-text: #334a52;
+  --color-text-light: #5a7880;
+
+  --color-accent-warm: #f4a261;
+  --color-accent-coral: #e76f51;
+  --color-success: #2a9d8f;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 500px;
+
+  --shadow-xs: 0 1px 3px rgba(51, 74, 82, 0.08);
+  --shadow-sm: 0 2px 8px rgba(51, 74, 82, 0.1);
+  --shadow-md: 0 4px 16px rgba(51, 74, 82, 0.12);
+  --shadow-lg: 0 8px 32px rgba(51, 74, 82, 0.16);
+  --shadow-button: 0 2px 8px rgba(51, 74, 82, 0.12);
+
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  --container-padding-x: clamp(16px, 4vw, 40px);
 }

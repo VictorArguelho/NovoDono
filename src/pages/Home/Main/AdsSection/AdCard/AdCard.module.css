@@ -1,27 +1,39 @@
 .adCard {
   width: 90%;
-  max-width: 250px;
+  max-width: 260px;
 
   aspect-ratio: 250 / 320;
 
-  border: 3px solid var(--color-text);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
 
   background-color: var(--color-white);
+  box-shadow: var(--shadow-lg);
 
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.adCard:hover {
+  transform: translateY(-4px);
+}
+
+.adCard:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .info {
   flex: 1;
-  padding: 4px;
+  padding: 10px 12px;
 
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
+  gap: 4px;
 }
 
 .imageContainer {
@@ -29,7 +41,7 @@
   width: 100%;
   height: 75%;
 
-  border-bottom: 3px solid var(--color-text);
+  border-bottom: 2px solid color-mix(in srgb, var(--color-text) 15%, transparent);
   overflow: hidden;
 }
 
@@ -39,16 +51,25 @@
 
   object-fit: cover;
   object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.adCard:hover .image {
+  transform: scale(1.05);
 }
 
 .state {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
 
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 2px;
-  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .title,
@@ -57,28 +78,31 @@
 }
 
 .title {
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .location {
-  font-size: 15px;
+  font-size: 14px;
   margin-top: auto;
+  color: var(--color-text-light);
 }
 
 @media (max-width: 768px) {
   .adCard {
-    max-width: 130px;
+    max-width: 150px;
   }
 
   .title {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .location {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .state {
-    font-size: 12px;
+    font-size: 11px;
   }
 }

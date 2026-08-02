@@ -11,7 +11,9 @@ export default function AdCard({ ad }: AdCardProps) {
         <AdGallery images={ad.imagesUrl} />
       </div>
 
-      <AdInfo ad={ad} />
+      <div className={styles.infoContainer}>
+        <AdInfo ad={ad} />
+      </div>
     </div>
   );
 }

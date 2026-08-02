@@ -4,11 +4,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  align-content: flex-start;
+  gap: 32px;
+  padding: 8px 16px 24px;
 }
 
 @media (max-width: 768px) {
   .adsSection {
-    gap: 15px;
+    gap: 16px;
+    padding: 8px 8px 24px;
   }
 }

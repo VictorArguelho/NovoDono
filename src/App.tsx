@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "@pages/Home/Home";
 import Ad from "@pages/Ad/Ad";
-import NotFound from "@pages/NotFound/NotFound";
+import ErrorPage from "@pages/ErrorPage/ErrorPage";
 import { CreateAds } from "./utils/PlaceholdersCreator";
 
 export default function App() {
@@ -16,7 +16,8 @@ export default function App() {
         <Route path='/' element={<Navigate to='/home' replace />} />
         <Route path='/home' element={<Home />} />
         <Route path='/ad/:id' element={<Ad />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='/error/:code' element={<ErrorPage />} />
+        <Route path='*' element={<Navigate to="/error/404" replace />} />
       </Routes>
     </BrowserRouter>
   );

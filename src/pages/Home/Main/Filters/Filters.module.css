@@ -1,45 +1,15 @@
 .filters {
-  margin-left: 15px;
-  margin-right: 15px;
+  padding: 16px;
 
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 20px;
-}
-
-.colapseButton {
-  border: 2px solid var(--color-text);
-  border-radius: 10px;
-  font-size: 20px;
-}
-
-.content {
-  width: 0;
-  overflow-x: hidden;
-  transition: width 0.55s ease;
-
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 20px;
-}
-
-.contentOpen {
-  width: 230px;
+  gap: 14px;
 }
 
 @media (max-width: 768px) {
   .filters {
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-
-  .colapseButton {
-    font-size: 15px;
-  }
-
-    .contentOpen {
-    width: 150px;
+    padding: 8px;
+    gap: 10px;
   }
 }
