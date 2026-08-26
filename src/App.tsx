@@ -4,21 +4,28 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "@pages/Home/Home";
 import Ad from "@pages/Ad/Ad";
 import ErrorPage from "@pages/ErrorPage/ErrorPage";
+import ErrorBoundary from "@components/ErrorBoundary/ErrorBoundary";
 import { CreateAds } from "./utils/PlaceholdersCreator";
 
 export default function App() {
   useEffect(() => {
-    CreateAds();
+    try {
+      CreateAds();
+    } catch (error) {
+      console.error("Não foi possível criar os anúncios de exemplo:", error);
+    }
   }, []);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Navigate to='/home' replace />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/ad/:id' element={<Ad />} />
-        <Route path='/error/:code' element={<ErrorPage />} />
-        <Route path='*' element={<Navigate to="/error/404" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Navigate to='/home' replace />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/ad/:id' element={<Ad />} />
+          <Route path='/error/:code' element={<ErrorPage />} />
+          <Route path='*' element={<Navigate to="/error/404" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }

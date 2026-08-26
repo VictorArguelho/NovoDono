@@ -9,6 +9,26 @@
   padding: 8px 16px 24px;
 }
 
+.feedback {
+  width: 100%;
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+.resetButton {
+  margin-top: 12px;
+  padding: 8px 24px;
+  background: var(--color-secondary);
+  color: white;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .adsSection {
     gap: 16px;

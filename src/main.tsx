@@ -4,7 +4,13 @@ import './index.css'
 import App from './App.tsx'
 import './styles/variables.css';
 
-createRoot(document.getElementById('root')!).render(
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Elemento raiz "#root" não encontrado no documento.');
+}
+
+createRoot(rootElement).render(
   <StrictMode>
     <App />
   </StrictMode>,
