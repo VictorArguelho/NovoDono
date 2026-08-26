@@ -19,7 +19,7 @@ export default function FilterGroup({ title, options }: FilterGroupProps) {
       <div className={`${styles.content} ${isOpen ? styles.contentOpen : ''}`}>
         <div>
           {options.map((option) => (
-            <label className={`${styles.option}`}>
+            <label key={option} className={`${styles.option}`}>
               <input className={styles.optionCheck} type="checkbox" />
               <span className={styles.optionName}>{option}</span>
             </label>

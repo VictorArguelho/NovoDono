@@ -1,4 +1,5 @@
-import { createAd } from "@services/AdsService";
+import { getAds, saveAds } from "@services/AdsService";
+import type { Ad } from "@models/Ad";
 
 import roupa2 from "@assets/images/AdsPlaceholders/roupa_2.jpg";
 import roupa3 from "@assets/images/AdsPlaceholders/roupa_3.jpg";
@@ -12,118 +13,126 @@ import roupa11 from "@assets/images/AdsPlaceholders/roupa_11.jpg";
 import roupa12 from "@assets/images/AdsPlaceholders/roupa_12.jpg";
 
 export function CreateAds(): void {
-  const existing = localStorage.getItem("ads");
-  if (existing && existing !== "") {
+  if (getAds().length > 0) {
     return;
   }
 
-  createAd({
-    id: "1",
-    category: "Camiseta manga longa",
-    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu",
-    imagesUrl: [roupa5, roupa2, roupa3, roupa4, roupa9, roupa11],
-    conservation: "Bom",
-    size: "M",
-    location: "Maringá, PR",
-  });
+  saveAds(placeholderAds());
+}
 
-  createAd({
-    id: "2",
-    category: "Camiseta manga curta",
-    description: "Camiseta marrom em um ótimo estado.",
-    imagesUrl: [roupa2],
-    conservation: "Novo",
-    size: "G",
-    location: "Maringá, PR",
-  });
+function placeholderAds(): Ad[] {
+  return [
+    {
+      id: "1",
+      category: "Camiseta manga longa",
+      description:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu",
+      imagesUrl: [roupa5, roupa2, roupa3, roupa4, roupa9, roupa11],
+      conservation: "Bom",
+      size: "M",
+      location: "Maringá, PR",
+    },
 
-  createAd({
-    id: "3",
-    category: "Camiseta manga curta",
-    description: "Camiseta branca em um estado mediano",
-    imagesUrl: [roupa3],
-    conservation: "Mediano",
-    size: "M",
-    location: "Sarandi, PR",
-  });
+    {
+      id: "2",
+      category: "Camiseta manga curta",
+      description: "Camiseta marrom em um ótimo estado.",
+      imagesUrl: [roupa2],
+      conservation: "Novo",
+      size: "G",
+      location: "Maringá, PR",
+    },
 
-  createAd({
-    id: "4",
-    category: "Vestido",
-    description: "Vestido preto novinho.",
-    imagesUrl: [roupa4],
-    conservation: "Novo",
-    size: "P",
-    location: "Mandaguaçu, PR",
-  });
+    {
+      id: "3",
+      category: "Camiseta manga curta",
+      description: "Camiseta branca em um estado mediano",
+      imagesUrl: [roupa3],
+      conservation: "Mediano",
+      size: "M",
+      location: "Sarandi, PR",
+    },
 
-  createAd({
-    id: "5",
-    category: "Camiseta manga longa",
-    description: "Camiseta branca meio desgastada, com um furo embaixo do braço.",
-    imagesUrl: [roupa5],
-    conservation: "Desgastada",
-    size: "G",
-    location: "Maringá, PR",
-  });
+    {
+      id: "4",
+      category: "Vestido",
+      description: "Vestido preto novinho.",
+      imagesUrl: [roupa4],
+      conservation: "Novo",
+      size: "P",
+      location: "Mandaguaçu, PR",
+    },
 
-  createAd({
-    id: "6",
-    category: "Camiseta manga curta",
-    description: "Camiseta azul em um estado bom.",
-    imagesUrl: [roupa7],
-    conservation: "Bom",
-    size: "M",
-    location: "Maringá, PR",
-  });
+    {
+      id: "5",
+      category: "Camiseta manga longa",
+      description:
+        "Camiseta branca meio desgastada, com um furo embaixo do braço.",
+      imagesUrl: [roupa5],
+      conservation: "Desgastada",
+      size: "G",
+      location: "Maringá, PR",
+    },
 
-  createAd({
-    id: "7",
-    category: "Camiseta manga curta",
-    description: "Camiseta branca bem cuidada.",
-    imagesUrl: [roupa8],
-    conservation: "Mediano",
-    size: "G",
-    location: "Maringá, PR",
-  });
+    {
+      id: "6",
+      category: "Camiseta manga curta",
+      description: "Camiseta azul em um estado bom.",
+      imagesUrl: [roupa7],
+      conservation: "Bom",
+      size: "M",
+      location: "Maringá, PR",
+    },
 
-  createAd({
-    id: "8",
-    category: "Regata",
-    description: "Regata preta quase nova.",
-    imagesUrl: [roupa9],
-    conservation: "Novo",
-    size: "M",
-    location: "Sarandi, PR",
-  });
+    {
+      id: "7",
+      category: "Camiseta manga curta",
+      description: "Camiseta branca bem cuidada.",
+      imagesUrl: [roupa8],
+      conservation: "Mediano",
+      size: "G",
+      location: "Maringá, PR",
+    },
 
-  createAd({
-    id: "9",
-    category: "Camiseta manga curta",
-    description: "Camiseta preta em um estado bom.",
-    imagesUrl: [roupa10],
-    conservation: "Bom",
-    size: "P",
-    location: "Maringá, PR",
-  });
+    {
+      id: "8",
+      category: "Regata",
+      description: "Regata preta quase nova.",
+      imagesUrl: [roupa9],
+      conservation: "Novo",
+      size: "M",
+      location: "Sarandi, PR",
+    },
 
-  createAd({
-    id: "10",
-    category: "Camiseta manga longa",
-    description: "Camiseta azul em um bom meio desgastado, possui um rasgo na costura lateral.",
-    imagesUrl: [roupa11],
-    conservation: "Desgastado",
-    size: "G",
-    location: "Mandaguaçu, PR",
-  });
+    {
+      id: "9",
+      category: "Camiseta manga curta",
+      description: "Camiseta preta em um estado bom.",
+      imagesUrl: [roupa10],
+      conservation: "Bom",
+      size: "P",
+      location: "Maringá, PR",
+    },
 
-  createAd({
-    id: "11",
-    category: "Camiseta manga curta",
-    description: "Camiseta azul em um estado mediano.",
-    imagesUrl: [roupa12],
-    conservation: "Mediano",
-    size: "P",
-    location: "Maringá, PR",
-  });
+    {
+      id: "10",
+      category: "Camiseta manga longa",
+      description:
+        "Camiseta azul em um bom meio desgastado, possui um rasgo na costura lateral.",
+      imagesUrl: [roupa11],
+      conservation: "Desgastado",
+      size: "G",
+      location: "Mandaguaçu, PR",
+    },
+
+    {
+      id: "11",
+      category: "Camiseta manga curta",
+      description: "Camiseta azul em um estado mediano.",
+      imagesUrl: [roupa12],
+      conservation: "Mediano",
+      size: "P",
+      location: "Maringá, PR",
+    },
+  ];
 }

@@ -2,20 +2,24 @@ import styles from './ErrorPage.module.css';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
+const messages: Record<number, string> = {
+  400: "ID de anúncio inválido",
+  404: "Página não encontrada",
+  500: "Erro interno da aplicação",
+};
+
 export default function ErrorPage() {
   const { code } = useParams();
+  const parsedCode = code !== undefined ? Number.parseInt(code, 10) : Number.NaN;
+  const knownCode = Number.isInteger(parsedCode) && parsedCode in messages;
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.error}>{code}</h1>
-      <p className={styles.text}>{GetMessage(Number.parseInt(code!, 10))}</p>
+      <h1 className={styles.error}>{knownCode ? parsedCode : "Erro"}</h1>
+      <p className={styles.text}>
+        {knownCode ? messages[parsedCode] : "Erro desconhecido"}
+      </p>
       <Link to="/" className={styles.homeLink}>Voltar para página inicial</Link>
     </div>
   );
-}
-
-function GetMessage(code : number) : string {
-  if (code === 404) return "Página não encontrada"
-  if (code === 400) return "ID de anúncio iválido"
-  return "Erro desconhecido"
 }
