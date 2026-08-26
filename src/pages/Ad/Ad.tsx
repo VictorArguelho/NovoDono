@@ -9,11 +9,8 @@ import AdCard from './AdCard/AdCard';
 export default function Ad() {
   const { id } = useParams();
 
-  if (!id) {
-    return <Navigate to="/error/400" replace />;
-  }
+  const ad = id ? getAdById(id) : undefined;
 
-  const ad = getAdById(id!);
   if (!ad) {
     return <Navigate to="/error/400" replace />;
   }
@@ -21,7 +18,7 @@ export default function Ad() {
   return (
     <div className={styles.ad}>
       <Header />
-      <AdCard ad={ad!} />
+      <AdCard ad={ad} />
     </div>
   );
 }

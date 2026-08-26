@@ -7,7 +7,7 @@ export default function AdsSection() {
   return (
     <section className={styles.adsSection}>
       {getAds().map((ad) => (
-        <AdCard ad={ad} />
+        <AdCard ad={ad} key={ad.id} />
       ))}
     </section>
   );

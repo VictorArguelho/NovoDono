@@ -1,12 +1,14 @@
 import styles from './NavButtons.module.css';
-import buttonStyles from '@styles/buttons.module.css';
-import effectsStyles from '@styles/effects.module.css';
+
+import Button from '@components/Button/Button';
+
+import { cx } from '@utils/classNames';
 
 import type { NavButtonsProps, NavButtonProps } from '@models/props';
 
 export default function NavButtons({className} : NavButtonsProps) {
   return (
-    <nav className={`${styles.navButtons} ${className ?? ''}`}>
+    <nav className={cx(styles.navButtons, className)}>
       <NavButton text="ANUNCIAR" />
 
       <NavButton text="CONVERSAS" />
@@ -20,11 +22,8 @@ export default function NavButtons({className} : NavButtonsProps) {
 
 function NavButton({ text }: NavButtonProps) {
   return (
-    <button
-      className={`${styles.button} ${buttonStyles.button} ${buttonStyles.divButton} ${effectsStyles.shadow}`}
-      type="button"
-    >
+    <Button className={styles.button} transparent>
       <span className={styles.text}>{text}</span>
-    </button>
+    </Button>
   );
 }

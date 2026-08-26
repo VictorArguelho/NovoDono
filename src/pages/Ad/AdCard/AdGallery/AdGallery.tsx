@@ -3,64 +3,18 @@ import { useState } from 'react';
 import styles from './AdGallery.module.css';
 import buttonStyles from '@styles/buttons.module.css';
 
+import Button from '@components/Button/Button';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CloseIcon,
+} from '@components/Icons/Icons';
+
+import { cx } from '@utils/classNames';
+
 import type { AdGalleryProps } from '@models/props';
 
 const previewCount = 5;
-
-function ChevronLeft() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="15 18 9 12 15 6" />
-    </svg>
-  );
-}
-
-function ChevronRight() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
-  );
-}
-
-function XIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="18" y1="6" x2="6" y2="18" />
-      <line x1="6" y1="6" x2="18" y2="18" />
-    </svg>
-  );
-}
 
 export default function AdGallery({ images }: AdGalleryProps) {
   const [curMainImg, setMainImg] = useState(0);
@@ -91,20 +45,8 @@ export default function AdGallery({ images }: AdGalleryProps) {
           <span>{`${curMainImg + 1} / ${images.length}`}</span>
         </div>
 
-        <button
-          className={styles.arrowButton}
-          style={{ left: '10px' }}
-          onClick={() => changeCurMainImg(-1)}
-        >
-          <ChevronLeft />
-        </button>
-        <button
-          className={styles.arrowButton}
-          style={{ right: '10px' }}
-          onClick={() => changeCurMainImg(1)}
-        >
-          <ChevronRight />
-        </button>
+        {getArrowButton(-1, false)}
+        {getArrowButton(1, false)}
       </div>
 
       <div
@@ -122,19 +64,21 @@ export default function AdGallery({ images }: AdGalleryProps) {
 
       {mainFullscreen ? (
         <div
-          className={`${styles.fullMainContainer} ${isClosing ? styles.fullMainContainerClosing : ''}`}
+          className={cx(
+            styles.fullMainContainer,
+            isClosing && styles.fullMainContainerClosing,
+          )}
         >
-          <button className={styles.closeFullMain} onClick={handleCloseFullscreen}>
-            <XIcon />
-          </button>
-
-          <button
-            className={`${styles.arrowButton} ${styles.fullscreenArrow}`}
-            style={{ left: '24px' }}
-            onClick={() => changeCurMainImg(-1)}
+          <Button
+            className={styles.closeFullMain}
+            raised={false}
+            shadow={false}
+            onClick={handleCloseFullscreen}
           >
-            <ChevronLeft />
-          </button>
+            <CloseIcon />
+          </Button>
+
+          {getArrowButton(-1, true)}
 
           <img
             className={styles.fullMain}
@@ -144,24 +88,37 @@ export default function AdGallery({ images }: AdGalleryProps) {
             onClick={handleCloseFullscreen}
           />
 
-          <button
-            className={`${styles.arrowButton} ${styles.fullscreenArrow}`}
-            style={{ right: '24px' }}
-            onClick={() => changeCurMainImg(1)}
-          >
-            <ChevronRight />
-          </button>
+          {getArrowButton(1, true)}
         </div>
       ) : null}
     </div>
   );
+
+  function getArrowButton(direction: -1 | 1, fullscreen: boolean) {
+    const offset = fullscreen ? '24px' : '10px';
+    return (
+      <Button
+        className={cx(styles.arrowButton, fullscreen && styles.fullscreenArrow)}
+        raised={false}
+        shadow={false}
+        style={direction === -1 ? { left: offset } : { right: offset }}
+        onClick={() => changeCurMainImg(direction)}
+      >
+        {direction === -1 ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+      </Button>
+    );
+  }
 
   function getPreviewImage(index: number) {
     if (index >= images.length || index < 0) return null;
     const isSelected = index === curMainImg;
     return (
       <img
-        className={`${isSelected ? styles.mainPrev : ''} ${styles.prev} ${buttonStyles.button}`}
+        className={cx(
+          isSelected && styles.mainPrev,
+          styles.prev,
+          buttonStyles.button,
+        )}
         key={images[index]}
         src={images[index]}
         alt={`Imagem ${index + 1}`}

@@ -12,6 +12,10 @@ export function getAds(): Ad[] {
   return JSON.parse(adsStorage);
 }
 
+export function adsStorageExists(): boolean {
+  return Boolean(localStorage.getItem(STORAGE_KEY));
+}
+
 export function getAdById(id: string): Ad | undefined {
   const ads = getAds();
   return ads.find((ad) => ad.id === id);
