@@ -73,7 +73,10 @@ export function getAds(): Ad[] {
     );
   }
 
-  return parsed;
+  return parsed.map((ad) => ({
+    ...ad,
+    imagesUrl: ad.imagesUrl.filter(isSafeImageUrl),
+  }));
 }
 
 export function getAdById(id: string): Ad | undefined {
@@ -97,5 +100,32 @@ export function clearAds(): void {
       "Não foi possível limpar os anúncios do armazenamento local.",
       { cause: error },
     );
+  }
+}
+
+function isSafeImageUrl(imageUrl: string): boolean {
+  const normalizedImageUrl = imageUrl.trim();
+
+  if (normalizedImageUrl.startsWith("//")) {
+    return false;
+  }
+
+  if (
+    normalizedImageUrl.startsWith("/") ||
+    normalizedImageUrl.startsWith("./") ||
+    normalizedImageUrl.toLowerCase().startsWith("data:image/")
+  ) {
+    return true;
+  }
+
+  try {
+    const parsedUrl = new URL(normalizedImageUrl, window.location.origin);
+    return (
+      parsedUrl.protocol === "http:" ||
+      parsedUrl.protocol === "https:" ||
+      parsedUrl.protocol === "blob:"
+    );
+  } catch {
+    return false;
   }
 }
