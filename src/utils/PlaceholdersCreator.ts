@@ -1,4 +1,4 @@
-import { adsStorageExists, createAd } from "@services/AdsService";
+import { getAds, saveAds } from "@services/AdsService";
 
 import type { Ad } from "@models/Ad";
 
@@ -102,15 +102,15 @@ const placeholders: AdPlaceholder[] = [
 ];
 
 export function CreateAds(): void {
-  if (adsStorageExists()) {
+  if (getAds().length > 0) {
     return;
   }
 
-  placeholders.forEach((placeholder, index) => {
-    createAd({
+  saveAds(
+    placeholders.map((placeholder, index) => ({
       ...placeholder,
       id: String(index + 1),
       location: placeholder.location ?? defaultLocation,
-    });
-  });
+    })),
+  );
 }

@@ -30,6 +30,14 @@ export default function AdGallery({ images }: AdGalleryProps) {
     }, 200);
   }
 
+  if (images.length === 0) {
+    return (
+      <div className={styles.adGallery}>
+        <p>Este anúncio não possui imagens.</p>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.adGallery}>
       <div className={styles.mainContainer}>
@@ -131,7 +139,7 @@ export default function AdGallery({ images }: AdGalleryProps) {
   function changeCurMainImg(number: number) {
     if (curMainImg === 0 && number === -1) {
       setMainImg(images.length - 1);
-      setPreviewStart(images.length - previewCount);
+      setPreviewStart(Math.max(images.length - previewCount, 0));
       return;
     }
     if (curMainImg === images.length - 1 && number === 1) {

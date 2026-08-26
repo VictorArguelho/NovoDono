@@ -3,6 +3,7 @@ import styles from "./AdCard.module.css";
 import buttonStyles from "@styles/buttons.module.css";
 import surfaceStyles from "@styles/surfaces.module.css";
 import { useNavigate } from "react-router-dom";
+import placeholder from "@assets/images/placeholder.jpg";
 
 import { cx } from "@utils/classNames";
 
@@ -16,7 +17,7 @@ export default function AdCard({ ad }: AdCardProps) {
       onClick={() => navigate(`/ad/${ad.id}`)}
     >
       <div className={styles.imageContainer}>
-        <img className={styles.image} src={ad.imagesUrl[0]} alt="" />
+        <img className={styles.image} src={ad.imagesUrl[0] ?? placeholder} alt="" />
         <span className={styles.state}>{ad.conservation}</span>
       </div>
 
