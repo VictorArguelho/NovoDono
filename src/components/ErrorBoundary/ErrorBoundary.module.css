@@ -26,13 +26,5 @@
 }
 
 .button {
-  margin-top: 12px;
   padding: 10px 28px;
-  background: var(--color-secondary);
-  color: white;
-  border: 0;
-  border-radius: var(--radius-pill);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
 }

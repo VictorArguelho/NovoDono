@@ -1,8 +1,12 @@
 import styles from "./AdsSection.module.css";
+import buttonStyles from "@styles/buttons.module.css";
 import { clearAds, getAds } from "@services/AdsService";
 import type { Ad } from "@models/Ad";
 
 import AdCard from "./AdCard/AdCard";
+import Button from "@components/Button/Button";
+
+import { cx } from "@utils/classNames";
 
 export default function AdsSection() {
   let ads: Ad[];
@@ -15,13 +19,14 @@ export default function AdsSection() {
       <section className={styles.adsSection}>
         <div className={styles.feedback}>
           <p>Não foi possível carregar os anúncios.</p>
-          <button
-            className={styles.resetButton}
-            type="button"
+          <Button
+            className={cx(styles.resetButton, buttonStyles.pill)}
+            raised={false}
+            shadow={false}
             onClick={handleReset}
           >
             Limpar dados e recarregar
-          </button>
+          </Button>
         </div>
       </section>
     );

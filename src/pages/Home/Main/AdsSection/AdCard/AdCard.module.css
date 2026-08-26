@@ -4,9 +4,6 @@
 
   aspect-ratio: 250 / 320;
 
-  border-radius: var(--radius-md);
-
-  background-color: var(--color-white);
   box-shadow: var(--shadow-lg);
 
   display: flex;

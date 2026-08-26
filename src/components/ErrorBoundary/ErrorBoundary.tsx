@@ -1,6 +1,11 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 
 import styles from './ErrorBoundary.module.css';
+import buttonStyles from '@styles/buttons.module.css';
+
+import Button from '@components/Button/Button';
+
+import { cx } from '@utils/classNames';
 
 type ErrorBoundaryProps = { children: ReactNode };
 type ErrorBoundaryState = { error: Error | null };
@@ -30,13 +35,14 @@ export default class ErrorBoundary extends Component<
       <div className={styles.container}>
         <h1 className={styles.title}>Algo deu errado</h1>
         <p className={styles.message}>{error.message}</p>
-        <button
-          className={styles.button}
-          type="button"
+        <Button
+          className={cx(styles.button, buttonStyles.pill)}
+          raised={false}
+          shadow={false}
           onClick={() => window.location.reload()}
         >
           Recarregar a página
-        </button>
+        </Button>
       </div>
     );
   }

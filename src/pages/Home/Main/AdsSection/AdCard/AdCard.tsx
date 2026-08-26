@@ -1,15 +1,18 @@
 import type { AdCardProps } from "@models/props";
 import styles from "./AdCard.module.css";
 import buttonStyles from "@styles/buttons.module.css";
+import surfaceStyles from "@styles/surfaces.module.css";
 import { useNavigate } from "react-router-dom";
 import placeholder from "@assets/images/placeholder.jpg";
+
+import { cx } from "@utils/classNames";
 
 export default function AdCard({ ad }: AdCardProps) {
   const navigate = useNavigate();
 
   return (
     <article
-      className={`${styles.adCard} ${buttonStyles.button}`}
+      className={cx(styles.adCard, buttonStyles.button, surfaceStyles.card)}
       role="button"
       onClick={() => navigate(`/ad/${ad.id}`)}
     >

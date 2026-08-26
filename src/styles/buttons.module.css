@@ -18,3 +18,14 @@
   transform: translateY(0);
   box-shadow: var(--shadow-sm);
 }
+
+.pill {
+  margin-top: 12px;
+  background: var(--color-secondary);
+  color: white;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}

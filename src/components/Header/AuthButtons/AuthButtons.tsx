@@ -1,6 +1,10 @@
 import styles from './AuthButtons.module.css';
-import buttonStyles from '@styles/buttons.module.css';
-import effectStyles from '@styles/effects.module.css';
+
+import Button from '@components/Button/Button';
+
+import { cx } from '@utils/classNames';
+
+import type { AuthButtonProps } from '@models/props';
 
 export default function AuthButtons() {
   return (
@@ -11,15 +15,6 @@ export default function AuthButtons() {
   );
 }
 
-import type { AuthButtonProps } from '@models/props';
-
 function AuthButton({ text, variantClass }: AuthButtonProps) {
-  return (
-    <button
-      className={`${variantClass} ${styles.button} ${buttonStyles.button} ${effectStyles.shadow}`}
-      type="button"
-    >
-      {text}
-    </button>
-  );
+  return <Button className={cx(variantClass, styles.button)}>{text}</Button>;
 }

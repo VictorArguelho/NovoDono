@@ -1,9 +1,12 @@
 import type { AdInfoProps } from '@models/props';
 import styles from './AdInfo.module.css';
+import surfaceStyles from '@styles/surfaces.module.css';
+
+import { cx } from '@utils/classNames';
 
 export default function AdInfo({ ad }: AdInfoProps) {
   return (
-    <div className={styles.info}>
+    <div className={cx(styles.info, surfaceStyles.card)}>
       <div className={styles.category}>
         <h1>{ad.category}</h1>
       </div>

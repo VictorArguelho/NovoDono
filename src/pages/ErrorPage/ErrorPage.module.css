@@ -24,25 +24,11 @@
 }
 
 .homeLink {
-  margin-top: 12px;
   padding: 10px 28px;
-  background: var(--color-secondary);
-  color: white;
-  border: 0;
-  border-radius: var(--radius-pill);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
   text-decoration: none;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  transition: background var(--transition-fast);
 }
 
 .homeLink:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
   background: color-mix(in srgb, var(--color-secondary) 85%, var(--color-text));
-}
-
-.homeLink:active {
-  transform: translateY(0);
 }
